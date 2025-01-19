@@ -1,0 +1,42 @@
+/* @theme custom */
+@import "gaia";
+
+section {
+  position: relative;
+}
+
+section::after {
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  font-size: 80%;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: unset;
+  bottom: 0px;
+  left: 0;
+  text-align: center;
+  font-size: 80%;
+}
+
+.title h1 {
+  text-align: center;
+  line-height: 1.6em;
+}
+
+.info {
+  text-align: center;
+  margin-top: 1.6em;
+}
+
+section.lead h1 {
+  font-size: var(--lead-h1-font-size);
+  margin: 0 auto 100px;
+  border: 0;
+}
+
+section.lead h2 {
+  font-size: var(--lead-h2-font-size);
+  margin: 0 auto 100px;
+}
