@@ -2,12 +2,8 @@
 @import "gaia";
 
 section {
-  position: relative;
-}
-
-section::after {
-  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
-  font-size: 80%;
+  padding-top: 1em;
+  padding-bottom: 3.5em;
 }
 
 header {
@@ -20,9 +16,23 @@ header {
   font-size: 80%;
 }
 
-.title h1 {
+.title h1,
+section.lead h1 {
+  font-size: 3em;
+  font-weight: 800;
   text-align: center;
-  line-height: 1.6em;
+  margin: 1.5em 0 1em 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  color: #f5f5dc;
+}
+
+.author {
+  text-align: center;
+  margin-top: 4em;
+  color: #b3c9d1;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .info {
@@ -30,13 +40,102 @@ header {
   margin-top: 1.6em;
 }
 
-section.lead h1 {
-  font-size: var(--lead-h1-font-size);
-  margin: 0 auto 100px;
-  border: 0;
-}
-
 section.lead h2 {
   font-size: var(--lead-h2-font-size);
   margin: 0 auto 100px;
+}
+
+:root {
+  &:whare(.center) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+}
+
+section.split div.split_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+section.split div.left {
+  width: 48%;
+}
+
+section.split div.right {
+  width: 48%;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  border-left: 6px solid #b3c9d1;
+  padding-left: 0.5em;
+  margin: 1.2em 0 0.7em 0;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #b3c9d1;
+  margin: 1em 0 0.5em 0;
+}
+
+section img {
+  display: block;
+  margin: 1em auto 2em auto;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+  text-align: center;
+  color: #b3c9d1;
+  font-size: 1em;
+  margin-top: -1.5em;
+  margin-bottom: 2em;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+}
+
+pre,
+code {
+  font-family: "Fira Mono", "Consolas", "Menlo", "Monaco", "monospace";
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  border-radius: 8px;
+  padding: 0.1em 0.5em;
+  font-size: 1em;
+  line-height: 1.6;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  overflow-x: auto;
+}
+
+code .hljs-comment,
+pre .hljs-comment {
+  color: #6a9955 !important;
+  font-style: italic;
+}
+
+code .hljs-keyword,
+pre .hljs-keyword {
+  color: #569cd6 !important;
+}
+
+code .hljs-string,
+pre .hljs-string {
+  color: #ce9178 !important;
+}
+
+code .hljs-title,
+pre .hljs-title {
+  color: #dcdcaa !important;
+}
+
+code .hljs-number,
+pre .hljs-number {
+  color: #b5cea8 !important;
 }
