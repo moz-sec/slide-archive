@@ -139,3 +139,12 @@ code .hljs-number,
 pre .hljs-number {
   color: #b5cea8 !important;
 }
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  font-size: 1em;
+}
