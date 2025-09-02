@@ -30,6 +30,34 @@ jobs:
           find slides -name '*.md' | \
           xargs -I{} sh -c 'out="public/$(basename "{}" .md).html"; npx @marp-team/marp-cli@latest --html "{}" -o "$out" --theme theme/custom.css'
 
+      - name: Generate index.html
+        run: |
+          cat <<'EOF' > public/index.html
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Slides</title>
+          <style>
+            body {
+              font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+              margin: 2rem;
+            }
+            ul { line-height: 1.8 }
+          </style>
+          <h1>Slides</h1>
+          <ul>
+          EOF
+
+          # リンク一覧を追記
+          find public -type f -name '*.html' ! -name 'index.html' | sort | while read -r p; do
+            rel="${p#public/}"
+            printf '  <li><a href="%s">%s</a></li>\n' "$rel" "$rel" >> public/index.html
+          done
+
+          # フッターを追記
+          cat <<'EOF' >> public/index.html
+          </ul>
+          EOF
+
       - name: Upload artifact for Pages
         id: deployment
         uses: actions/upload-pages-artifact@v3
